@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxn8hc24xm1hc"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_2m2lb"]
+[ext_resource type="Texture2D" uid="uid://cgoc31dkg5ygc" path="res://images/alminha.png" id="2_2m6ho"]
+[ext_resource type="Script" path="res://scripts/SpringArm3D.gd" id="3_qu764"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mvurm"]
+
+[node name="Main" type="Node3D"]
+transform = Transform3D(1.00409, 0, 0, 0, 1.00409, 0, 0, 0, 1.00409, 0, 0, 0)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191108, 0.918936, 0.0155195)
+floor_max_angle = 1.5708
+script = ExtResource("1_2m2lb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BoxShape3D_mvurm")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player"]
+transform = Transform3D(0.801488, 0, 0, 0, 0.616593, 0.618471, 0, -0.616593, 0.618471, 0, 0, 0)
+pixel_size = 0.02
+texture = ExtResource("2_2m6ho")
+
+[node name="CameraRotation" type="SpringArm3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("3_qu764")
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraRotation"]
+transform = Transform3D(0.995927, 0, 0, 0, 0.994761, 0.0481647, 0, -0.0481647, 0.994761, 0, 0, 0)
+current = true
