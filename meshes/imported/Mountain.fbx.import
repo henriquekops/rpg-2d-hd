@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://8aor6l7vrvao"
-path="res://.godot/imported/Mountain_1_LOD_Low.fbx-b5377cbca60f145616fb574bc4de57b4.scn"
+path="res://.godot/imported/Mountain.fbx-5af3f006c0529383e38c7c9217e8beaa.scn"
 
 [deps]
 
-source_file="res://meshes/assets/Mountain_1_LOD_Low.fbx"
-dest_files=["res://.godot/imported/Mountain_1_LOD_Low.fbx-b5377cbca60f145616fb574bc4de57b4.scn"]
+source_file="res://meshes/imported/Mountain.fbx"
+dest_files=["res://.godot/imported/Mountain.fbx-5af3f006c0529383e38c7c9217e8beaa.scn"]
 
 [params]
 

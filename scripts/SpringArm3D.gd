@@ -3,7 +3,7 @@ extends SpringArm3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	spring_length = 10
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,7 +16,7 @@ func handle_camera():
 		var tween = create_tween()
 		tween.set_trans(Tween.TRANS_SINE)
 		tween.set_ease(Tween.EASE_OUT)
-		tween.tween_property(self, "rotation:y", self.rotation.y + PI/2, 0.5)
+		tween.tween_property(self, "rotation:y", self.rotation.y - PI/2, 0.5)
 	elif Input.is_action_just_pressed("rotate_right"):
 		var tween = create_tween()
 		tween.set_trans(Tween.TRANS_SINE)
@@ -30,7 +30,7 @@ func handle_camera():
 
 func handle_zoom():
 	if Input.is_action_just_pressed("zoom_in"):
-		if spring_length >= 1:
+		if spring_length >= 5:
 			var tween = create_tween()
 			tween.set_trans(Tween.TRANS_SINE)
 			tween.set_ease(Tween.EASE_OUT)
@@ -40,7 +40,7 @@ func handle_zoom():
 			if newLength <= 0:
 				tween.tween_property(self, "position", Vector3(0, 0.2, 0), 0.5)
 	elif Input.is_action_just_pressed("zoom_out"):
-		if spring_length <= 4:
+		if spring_length <= 10:
 			var tween = create_tween()
 			tween.set_trans(Tween.TRANS_SINE)
 			tween.set_ease(Tween.EASE_OUT)
