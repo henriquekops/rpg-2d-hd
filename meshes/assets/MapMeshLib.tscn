@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://chrmddfhh80yi"]
+[gd_scene load_steps=6 format=3 uid="uid://chrmddfhh80yi"]
 
 [ext_resource type="PackedScene" uid="uid://dl5wbitnnnb4" path="res://meshes/assets/Water.tscn" id="1_kxpv7"]
+[ext_resource type="PackedScene" uid="uid://fvnjewtrg78a" path="res://meshes/assets/Tree.tscn" id="2_bj3ev"]
 [ext_resource type="PackedScene" uid="uid://dbj25gngkb21p" path="res://meshes/assets/Sand.tscn" id="2_xadgw"]
+[ext_resource type="PackedScene" uid="uid://5kbo3tm0uo15" path="res://meshes/assets/Trees.tscn" id="3_61rfy"]
+[ext_resource type="PackedScene" uid="uid://bl7hcndvk3xbf" path="res://meshes/assets/wooden_box.tscn" id="5_lhoob"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="MeshInstance3D" parent="." instance=ExtResource("1_kxpv7")]
+[node name="SandBox" parent="." instance=ExtResource("2_xadgw")]
 
-[node name="MeshInstance3D2" parent="." instance=ExtResource("2_xadgw")]
+[node name="Tree" parent="." instance=ExtResource("2_bj3ev")]
+
+[node name="Trees" parent="." instance=ExtResource("3_61rfy")]
+
+[node name="WaterBox" parent="." instance=ExtResource("1_kxpv7")]
+
+[node name="WoodenBox" parent="." instance=ExtResource("5_lhoob")]

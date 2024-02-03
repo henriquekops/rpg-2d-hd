@@ -1,16 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl5wbitnnnb4"]
+[gd_scene load_steps=3 format=3 uid="uid://dl5wbitnnnb4"]
 
 [ext_resource type="Material" uid="uid://cxjsimnwx13qi" path="res://materials/water_material.tres" id="1_vbie0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gg3k0"]
 material = ExtResource("1_vbie0")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qmi7p"]
-
-[node name="MeshInstance3D" type="MeshInstance3D"]
+[node name="WaterBox" type="MeshInstance3D"]
 mesh = SubResource("BoxMesh_gg3k0")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_qmi7p")

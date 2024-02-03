@@ -1,14 +1,14 @@
 [gd_scene load_steps=9 format=3 uid="uid://bxn8hc24xm1hc"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_2m2lb"]
-[ext_resource type="Texture2D" uid="uid://cfk723d7c7wdi" path="res://images/guerreiro_spritesheet.png" id="2_g16d5"]
+[ext_resource type="Texture2D" uid="uid://ca5obexilx2ec" path="res://images/Corrida-Shee-2t-export.png" id="2_yjmhd"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="3_w70gr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mvurm"]
 
 [sub_resource type="Animation" id="Animation_h8kcv"]
 resource_name = "walk"
-length = 0.6
+length = 0.9
 loop_mode = 1
 step = 0.15
 tracks/0/type = "value"
@@ -18,22 +18,10 @@ tracks/0/path = NodePath("..:animation_frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7aucu"]
@@ -49,8 +37,8 @@ dof_blur_amount = 0.01
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pvhj0"]
 shader = ExtResource("3_w70gr")
 shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.2
-shader_parameter/vignette_rgb = Color(0.517647, 0.14902, 0.717647, 1)
+shader_parameter/vignette_opacity = 0.377
+shader_parameter/vignette_rgb = Color(0.815686, 0, 0, 1)
 
 [node name="Main" type="Node3D"]
 transform = Transform3D(1.00409, 0, 0, 0, 1.00409, 0, 0, 0, 1.00409, 0, 0, 0)
@@ -58,17 +46,17 @@ transform = Transform3D(1.00409, 0, 0, 0, 1.00409, 0, 0, 0, 1.00409, 0, 0, 0)
 [node name="Player" type="CharacterBody3D" parent="."]
 floor_max_angle = 1.5708
 script = ExtResource("1_2m2lb")
-animation_frame = 3
+animation_frame = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("BoxShape3D_mvurm")
 
 [node name="Sprite3D" type="Sprite3D" parent="Player"]
-transform = Transform3D(0.45, 0, 0, 0, 0.318198, 0.318198, 0, -0.318198, 0.318198, 0, 0, 0)
+transform = Transform3D(0.801488, 0, 0, 0, 0.616593, 0.618471, 0, -0.616593, 0.618471, 0, 0, 0)
 pixel_size = 0.02
-texture = ExtResource("2_g16d5")
-hframes = 12
-frame = 3
+texture = ExtResource("2_yjmhd")
+hframes = 4
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 root_node = NodePath("../Sprite3D")

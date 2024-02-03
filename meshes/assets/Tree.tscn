@@ -1,11 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://fvnjewtrg78a"]
 
-[ext_resource type="Texture2D" uid="uid://d3behs6e4djaq" path="res://images/palmeira.png" id="1_igpng"]
+[ext_resource type="Texture2D" uid="uid://b8dif085v8aly" path="res://images/palmeira.png" id="1_igpng"]
 
-[node name="Sprite3D" type="Sprite3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.8, 0)
+[node name="Tree" type="MeshInstance3D"]
+
+[node name="TreeSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
 billboard = 2
-shaded = true
 alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("1_igpng")

@@ -2,7 +2,11 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const FRAMES = 4
 
+@export var animation_frame = 0
+@onready var facing = 0
+var bla = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -23,7 +27,9 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction = (self.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-
+	
+	walk_animation(direction)
+	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
@@ -35,8 +41,32 @@ func _physics_process(delta):
 
 func _input(event):
 	if Input.is_action_pressed("zoom_in"):
-		if $Camera3D.size > 10:
-			$CameraPivot/Camera3D.size -= 1
+		if $Camera3D.size > 12:
+			$Camera3D.size -= 1
 	if Input.is_action_pressed("zoom_out"):
-		if $Camera3D.size < 20:
-			$Camera3D.size += 1		
+		if $Camera3D.size < 15:
+			$Camera3D.size += 1
+
+func walk_animation(direction):
+	if direction == Vector3(0,0,0):
+		$AnimationPlayer.stop()
+		animation_frame = 0
+	else:
+		$AnimationPlayer.play("walk")
+	
+	print(animation_frame)
+		
+	if Input.is_action_pressed("move_down"): 
+		facing = 0
+	elif Input.is_action_pressed("move_up"):
+		facing = 2
+	elif Input.is_action_pressed("move_left"):
+		$Sprite3D.flip_h = true
+		facing = 1
+	elif Input.is_action_pressed("move_right"):
+		$Sprite3D.flip_h = false
+		facing = 1
+
+	bla = animation_frame + (facing * FRAMES)
+	print(bla)
+	$Sprite3D.frame = bla

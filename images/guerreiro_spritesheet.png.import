@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca5obexilx2ec"
-path="res://.godot/imported/Corrida-Shee-2t-export.png-7c4bf9327d090fd99cee29b68d98da52.ctex"
+uid="uid://cfk723d7c7wdi"
+path="res://.godot/imported/guerreiro_spritesheet.png-7f7c4b6f6f8f9fbf8e0530cf7f7abd2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Corrida-Shee-2t-export.png"
-dest_files=["res://.godot/imported/Corrida-Shee-2t-export.png-7c4bf9327d090fd99cee29b68d98da52.ctex"]
+source_file="res://images/guerreiro_spritesheet.png"
+dest_files=["res://.godot/imported/guerreiro_spritesheet.png-7f7c4b6f6f8f9fbf8e0530cf7f7abd2f.ctex"]
 
 [params]
 
