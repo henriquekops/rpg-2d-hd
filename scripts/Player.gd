@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 4.0
 const FRAMES = 4
 
 @export var animation_frame = 0
@@ -14,6 +14,9 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_pressed("rotate_left"):
 		#$CameraPivot.rotation_degrees.y -= 1
@@ -41,28 +44,28 @@ func _physics_process(delta):
 
 func _input(event):
 	if Input.is_action_pressed("zoom_in"):
-		if $Camera3D.size > 10:
-			$Camera3D.size -= 1
+		if $PlayerCamera.size > 10:
+			$PlayerCamera.size -= 1
 	if Input.is_action_pressed("zoom_out"):
-		if $Camera3D.size < 12:
-			$Camera3D.size += 1
+		if $PlayerCamera.size < 12:
+			$PlayerCamera.size += 1
 
 func walk_animation(direction):
 	if direction == Vector3(0,0,0):
-		$AnimationPlayer.stop()
+		$PlayerAnimation.stop()
 		animation_frame = 0
 	else:
-		$AnimationPlayer.play("walk")
+		$PlayerAnimation.play("walk")
 		
 	if Input.is_action_pressed("move_down"): 
 		facing = 0
 	elif Input.is_action_pressed("move_up"):
 		facing = 2
 	elif Input.is_action_pressed("move_left"):
-		$Sprite3D.flip_h = true
+		$PlayerSprite.flip_h = true
 		facing = 1
 	elif Input.is_action_pressed("move_right"):
-		$Sprite3D.flip_h = false
+		$PlayerSprite.flip_h = false
 		facing = 1
 
-	$Sprite3D.frame = animation_frame + (facing * FRAMES)
+	$PlayerSprite.frame = animation_frame + (facing * FRAMES)

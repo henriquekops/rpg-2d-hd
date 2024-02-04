@@ -1,25 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkae4iruv8f6l"]
 
-[ext_resource type="PackedScene" uid="uid://bo13erm4o61g8" path="res://scenes/Map.tscn" id="1_wlbny"]
-[ext_resource type="PackedScene" uid="uid://bxn8hc24xm1hc" path="res://scenes/Player.tscn" id="2_msjl3"]
+[ext_resource type="PackedScene" uid="uid://bo13erm4o61g8" path="res://scenes/map.tscn" id="1_wlbny"]
+[ext_resource type="PackedScene" uid="uid://bxn8hc24xm1hc" path="res://scenes/player.tscn" id="2_msjl3"]
 
 [sub_resource type="Environment" id="Environment_102v3"]
-tonemap_mode = 3
+ambient_light_source = 1
+reflected_light_source = 1
+tonemap_mode = 2
 tonemap_exposure = 1.25
 tonemap_white = 8.07
 ssao_enabled = true
-ssao_power = 4.7075
+ssao_radius = 2.88
+ssao_power = 5.59819
 ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
 glow_enabled = true
+glow_intensity = 0.03
 glow_bloom = 0.03
 glow_blend_mode = 0
 
 [node name="Main" type="Node3D"]
-
-[node name="Map" parent="." instance=ExtResource("1_wlbny")]
-
-[node name="Player" parent="." instance=ExtResource("2_msjl3")]
-transform = Transform3D(1.00409, 0, 0, 0, 1.00409, 0, 0, 0, 1.00409, 9.17929, 2.69166, 11.0653)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.632029, -0.375701, 0.677782, 0, 0.87462, 0.48481, -0.774944, -0.306414, 0.552785, 0.121094, -0.176575, 0.065918)
@@ -29,3 +30,8 @@ sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_102v3")
+
+[node name="Map" parent="." instance=ExtResource("1_wlbny")]
+
+[node name="Player" parent="." instance=ExtResource("2_msjl3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9412, 2.50698, 1.51236)

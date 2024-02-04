@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bxn8hc24xm1hc"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_2m2lb"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_2m2lb"]
 [ext_resource type="Texture2D" uid="uid://cfk723d7c7wdi" path="res://images/guerreiro_spritesheet.png" id="2_g16d5"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="3_w70gr"]
 
@@ -52,37 +52,34 @@ shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.2
 shader_parameter/vignette_rgb = Color(0.517647, 0.14902, 0.717647, 1)
 
-[node name="Main" type="Node3D"]
-transform = Transform3D(1.00409, 0, 0, 0, 1.00409, 0, 0, 0, 1.00409, 0, 0, 0)
-
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D"]
 floor_max_angle = 1.5708
 script = ExtResource("1_2m2lb")
-animation_frame = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+[node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_mvurm")
 
-[node name="Sprite3D" type="Sprite3D" parent="Player"]
+[node name="PlayerSprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.45, 0, 0, 0, 0.318198, 0.318198, 0, -0.318198, 0.318198, 0, 0, 0)
 pixel_size = 0.02
 texture = ExtResource("2_g16d5")
 hframes = 12
 frame = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-root_node = NodePath("../Sprite3D")
+[node name="PlayerAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../PlayerSprite")
 libraries = {
 "": SubResource("AnimationLibrary_7aucu")
 }
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(0.995927, 0, 0, 0, 0.497964, 0.862498, 0, -0.862498, 0.497964, 0, 10, 3)
+[node name="PlayerCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 3)
 attributes = SubResource("CameraAttributesPractical_xo680")
 projection = 1
+current = true
 size = 10.0
 
-[node name="ColorRect" type="ColorRect" parent="Player/Camera3D"]
+[node name="PlayerCanva" type="ColorRect" parent="PlayerCamera"]
 material = SubResource("ShaderMaterial_pvhj0")
 offset_right = 1150.0
 offset_bottom = 650.0

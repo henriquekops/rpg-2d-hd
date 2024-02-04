@@ -1,10 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl5wbitnnnb4"]
+[gd_scene load_steps=5 format=3 uid="uid://dl5wbitnnnb4"]
 
-[ext_resource type="Material" uid="uid://cxjsimnwx13qi" path="res://materials/water_material.tres" id="1_vbie0"]
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="1_8yy57"]
+[ext_resource type="Texture2D" uid="uid://csme2n6p0tn83" path="res://images/water_texture.png" id="1_g8qpo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qpie"]
+render_priority = 0
+shader = ExtResource("1_8yy57")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 0)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/time_factor = 1.0
+shader_parameter/amplitude = Vector2(0.01, 0.01)
+shader_parameter/texture_albedo = ExtResource("1_g8qpo")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3r4c7"]
-material = ExtResource("1_vbie0")
+material = SubResource("ShaderMaterial_3qpie")
 size = Vector2(1, 1)
 
-[node name="WaterBox" type="MeshInstance3D"]
+[node name="Water" type="MeshInstance3D"]
+transform = Transform3D(0.999997, 1.36146e-05, -0.0024381, -1.40069e-05, 1, -0.000161144, 0.0024381, 0.000161178, 0.999997, 0, 0, 0)
 mesh = SubResource("PlaneMesh_3r4c7")

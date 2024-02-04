@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://fvnjewtrg78a"]
 
-[ext_resource type="Texture2D" uid="uid://b8dif085v8aly" path="res://images/palmeira.png" id="1_igpng"]
-[ext_resource type="Shader" path="res://shaders/tree.gdshader" id="1_s3o7m"]
+[ext_resource type="Shader" path="res://shaders/tree.gdshader" id="1_vytuk"]
+[ext_resource type="Texture2D" uid="uid://b8dif085v8aly" path="res://images/palmtree_sprite.png" id="2_ao7d0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mi03p"]
 render_priority = 0
-shader = ExtResource("1_s3o7m")
+shader = ExtResource("1_vytuk")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
@@ -18,7 +18,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/amplitude = 0.1
 shader_parameter/speed = 1.0
-shader_parameter/texture_albedo = ExtResource("1_igpng")
+shader_parameter/texture_albedo = ExtResource("2_ao7d0")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6ve6d"]
 material = SubResource("ShaderMaterial_mi03p")
@@ -26,5 +26,5 @@ size = Vector2(1, 1)
 orientation = 2
 
 [node name="Tree" type="MeshInstance3D"]
-transform = Transform3D(4.99985, -0.0287543, -0.0252186, 0.0285799, 4.9998, -0.0345409, 0.0254161, 0.0343958, 4.99982, 0, 2.5, 0)
+transform = Transform3D(3.99988, -0.0230036, -0.0201748, 0.0228639, 3.99984, -0.0276328, 0.0203329, 0.0275166, 3.99985, 0, 2, 0)
 mesh = SubResource("PlaneMesh_6ve6d")

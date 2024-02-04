@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://bm2wu3i5yeyi4"]
+
+[ext_resource type="Script" path="res://scripts/splash_screen.gd" id="1_ci3gf"]
+[ext_resource type="Texture2D" uid="uid://cap7bssuwxoaj" path="res://images/icon.png" id="1_e57ph"]
+[ext_resource type="FontFile" uid="uid://cjxlimdydm5mu" path="res://fonts/Crang.ttf" id="2_k7m1a"]
+[ext_resource type="Script" path="res://scripts/typing_text.gd" id="3_a556k"]
+[ext_resource type="AudioStream" uid="uid://da675qcgf4jfo" path="res://sounds/splash_text.wav" id="4_naya1"]
+
+[sub_resource type="Animation" id="Animation_ffw8s"]
+resource_name = "do_splash"
+length = 2.0
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.75, 0.9),
+"transitions": PackedFloat32Array(1, 0.120742, 0.120742, 0.120742),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0.844, 0.844), Vector2(0.644, 0.644)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cg5d5"]
+_data = {
+"do_splash": SubResource("Animation_ffw8s")
+}
+
+[node name="SplashScreen" type="Node2D"]
+script = ExtResource("1_ci3gf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1154.0
+offset_bottom = 644.0
+color = Color(0.152941, 0.152941, 0.152941, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cg5d5")
+}
+autoplay = "do_splash"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(572, 170)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("1_e57ph")
+
+[node name="KreativeLaundryText" type="Label" parent="."]
+offset_left = 287.0
+offset_top = 341.0
+offset_right = 871.0
+offset_bottom = 392.0
+theme_override_colors/font_color = Color(0.752941, 0.796078, 0.862745, 1)
+theme_override_colors/font_shadow_color = Color(0.133333, 0.443137, 0.74902, 1)
+theme_override_colors/font_outline_color = Color(0.0705882, 0.305882, 0.537255, 1)
+theme_override_fonts/font = ExtResource("2_k7m1a")
+theme_override_font_sizes/font_size = 50
+script = ExtResource("3_a556k")
+full_text = "KREATIVE  LAUNDRY"
+
+[node name="Timer" type="Timer" parent="KreativeLaundryText"]
+wait_time = 0.05
+autostart = true
+
+[node name="TextSound" type="AudioStreamPlayer2D" parent="KreativeLaundryText"]
+stream = ExtResource("4_naya1")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="KreativeLaundryText" to="." method="_on_kreative_laundry_text_finished"]
+[connection signal="timeout" from="KreativeLaundryText/Timer" to="KreativeLaundryText" method="_on_timer_timeout"]

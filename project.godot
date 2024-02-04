@@ -11,10 +11,16 @@ config_version=5
 [application]
 
 config/name="RPG2.5D"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/splash_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=60
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/show_image=false
+config/icon="res://images/icon.png"
+
+[display]
+
+window/size/resizable=false
 
 [importer_defaults]
 

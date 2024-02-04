@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://chrmddfhh80yi"]
+
+[ext_resource type="PackedScene" uid="uid://dbj25gngkb21p" path="res://meshes/assets/sand.tscn" id="1_easvh"]
+[ext_resource type="PackedScene" uid="uid://fvnjewtrg78a" path="res://meshes/assets/tree.tscn" id="2_suga0"]
+[ext_resource type="PackedScene" uid="uid://dl5wbitnnnb4" path="res://meshes/assets/water.tscn" id="3_q4sas"]
+[ext_resource type="PackedScene" uid="uid://bl7hcndvk3xbf" path="res://meshes/assets/wooden_box.tscn" id="4_qyqar"]
+
+[node name="MeshLib" type="Node3D"]
+
+[node name="Sand" parent="." instance=ExtResource("1_easvh")]
+
+[node name="Tree" parent="." instance=ExtResource("2_suga0")]
+top_level = true
+
+[node name="Water" parent="." instance=ExtResource("3_q4sas")]
+
+[node name="WoodenBox" parent="." instance=ExtResource("4_qyqar")]
