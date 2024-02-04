@@ -1,8 +1,8 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bwanxw76bme8t"]
 
-[ext_resource type="Texture2D" uid="uid://bfu47s4atxv1p" path="res://images/areia12.png" id="1_m1jo7"]
+[ext_resource type="Texture2D" uid="uid://cqy15j7rt7aoa" path="res://images/sand_texture.png" id="1_s1yos"]
 
 [resource]
-albedo_texture = ExtResource("1_m1jo7")
+albedo_texture = ExtResource("1_s1yos")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
