@@ -1,12 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://fvnjewtrg78a"]
+[gd_scene load_steps=6 format=3 uid="uid://fvnjewtrg78a"]
 
 [ext_resource type="Texture2D" uid="uid://b8dif085v8aly" path="res://images/palmeira.png" id="1_igpng"]
+[ext_resource type="Shader" path="res://shaders/tree.gdshader" id="1_s3o7m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rwle2"]
+shader = ExtResource("1_s3o7m")
+shader_parameter/amplitude = 3.0
+shader_parameter/speed = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t813q"]
+next_pass = SubResource("ShaderMaterial_rwle2")
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_igpng")
+texture_filter = 0
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6ve6d"]
+material = SubResource("StandardMaterial3D_t813q")
+size = Vector2(1, 1)
+orientation = 2
 
 [node name="Tree" type="MeshInstance3D"]
-
-[node name="TreeSprite" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
-billboard = 2
-alpha_cut = 2
-texture_filter = 0
-texture = ExtResource("1_igpng")
+transform = Transform3D(5, 0, 0, 0, 4.99999, 0, 0, 0, 4.99999, 0, 1.8, 0)
+mesh = SubResource("PlaneMesh_6ve6d")

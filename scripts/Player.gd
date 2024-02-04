@@ -6,7 +6,7 @@ const FRAMES = 4
 
 @export var animation_frame = 0
 @onready var facing = 0
-var bla = 0
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -41,10 +41,10 @@ func _physics_process(delta):
 
 func _input(event):
 	if Input.is_action_pressed("zoom_in"):
-		if $Camera3D.size > 12:
+		if $Camera3D.size > 10:
 			$Camera3D.size -= 1
 	if Input.is_action_pressed("zoom_out"):
-		if $Camera3D.size < 15:
+		if $Camera3D.size < 12:
 			$Camera3D.size += 1
 
 func walk_animation(direction):
@@ -53,8 +53,6 @@ func walk_animation(direction):
 		animation_frame = 0
 	else:
 		$AnimationPlayer.play("walk")
-	
-	print(animation_frame)
 		
 	if Input.is_action_pressed("move_down"): 
 		facing = 0
@@ -67,6 +65,4 @@ func walk_animation(direction):
 		$Sprite3D.flip_h = false
 		facing = 1
 
-	bla = animation_frame + (facing * FRAMES)
-	print(bla)
-	$Sprite3D.frame = bla
+	$Sprite3D.frame = animation_frame + (facing * FRAMES)

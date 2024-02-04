@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ca1emsps2d4wb" path="res://images/madera1.png" id="1_w2g82"]
 
 [resource]
+shading_mode = 0
 albedo_texture = ExtResource("1_w2g82")
 uv1_scale = Vector3(3, 1, 1)
 texture_filter = 0

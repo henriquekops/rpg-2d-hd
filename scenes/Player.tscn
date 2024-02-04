@@ -77,10 +77,10 @@ libraries = {
 }
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(0.995927, 0, 0, 0, 0.704227, 0.704227, 0, -0.704227, 0.704227, 0, 10, 3)
+transform = Transform3D(0.995927, 0, 0, 0, 0.497964, 0.862498, 0, -0.862498, 0.497964, 0, 10, 3)
 attributes = SubResource("CameraAttributesPractical_xo680")
 projection = 1
-size = 15.0
+size = 10.0
 
 [node name="ColorRect" type="ColorRect" parent="Player/Camera3D"]
 material = SubResource("ShaderMaterial_pvhj0")
