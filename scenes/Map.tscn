@@ -27,4 +27,3 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="Tree" parent="." instance=ExtResource("1_13i5k")]
-transform = Transform3D(5, 0, 0, 0, 3.53553, -3.53553, 0, 3.53553, 3.53553, 9.45, 2.9, -2.659)
