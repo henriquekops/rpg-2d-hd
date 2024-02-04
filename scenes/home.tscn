@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://6i52g1t8n66g"]
+
+[ext_resource type="Shader" path="res://shaders/home.gdshader" id="1_8malw"]
+[ext_resource type="Texture2D" uid="uid://yku0g1xfi5aq" path="res://images/home_concept.png" id="1_dpw3d"]
+[ext_resource type="Script" path="res://scripts/home.gd" id="2_pct1n"]
+[ext_resource type="FontFile" uid="uid://cjxlimdydm5mu" path="res://fonts/Crang.ttf" id="4_ljyy0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ao1j"]
+shader = ExtResource("1_8malw")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_pe321"]
+resource_name = "home_backgorund"
+length = 26.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HomeConcept:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10.2, 19.9, 25.3),
+"transitions": PackedFloat32Array(1, 2, 2, 1),
+"update": 0,
+"values": [Vector2(-2675.68, -1070.27), Vector2(-2775.68, -1070.27), Vector2(-2575.68, -1070.27), Vector2(-2575.68, -1070.27)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oudlb"]
+_data = {
+"home_backgorund": SubResource("Animation_pe321")
+}
+
+[node name="Home" type="Node2D"]
+material = SubResource("ShaderMaterial_3ao1j")
+position = Vector2(1615, 746)
+scale = Vector2(0.379343, 0.379343)
+script = ExtResource("2_pct1n")
+
+[node name="HomeConcept" type="Sprite2D" parent="."]
+position = Vector2(-2675.68, -1070.27)
+texture = ExtResource("1_dpw3d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oudlb")
+}
+autoplay = "home_backgorund"
+
+[node name="Play" type="Button" parent="."]
+offset_left = -3176.54
+offset_top = -927.92
+offset_right = -1968.54
+offset_bottom = -519.92
+scale = Vector2(0.975772, 1)
+theme_override_colors/font_color = Color(0.980703, 0.859959, 0.973231, 1)
+theme_override_fonts/font = ExtResource("4_ljyy0")
+theme_override_font_sizes/font_size = 400
+text = "PLAY"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

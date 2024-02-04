@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxn8hc24xm1hc"]
+[gd_scene load_steps=10 format=3 uid="uid://bxn8hc24xm1hc"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2m2lb"]
 [ext_resource type="Texture2D" uid="uid://cfk723d7c7wdi" path="res://images/guerreiro_spritesheet.png" id="2_g16d5"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="3_w70gr"]
+[ext_resource type="Texture2D" uid="uid://4rcyanqql8dl" path="res://images/heart.png" id="4_7gks0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mvurm"]
 
@@ -79,7 +80,29 @@ projection = 1
 current = true
 size = 10.0
 
-[node name="PlayerCanva" type="ColorRect" parent="PlayerCamera"]
+[node name="HeartHUD" type="ColorRect" parent="PlayerCamera"]
+offset_left = 47.0
+offset_top = 47.0
+offset_right = 270.0
+offset_bottom = 99.0
+color = Color(0.458824, 0.458824, 0.458824, 0)
+
+[node name="Heart1" type="Sprite2D" parent="PlayerCamera/HeartHUD"]
+position = Vector2(48, 26)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("4_7gks0")
+
+[node name="Heart2" type="Sprite2D" parent="PlayerCamera/HeartHUD"]
+position = Vector2(112, 26)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("4_7gks0")
+
+[node name="Heart3" type="Sprite2D" parent="PlayerCamera/HeartHUD"]
+position = Vector2(175, 26)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("4_7gks0")
+
+[node name="PlayerVignetteCanva" type="ColorRect" parent="PlayerCamera"]
 material = SubResource("ShaderMaterial_pvhj0")
 offset_right = 1150.0
 offset_bottom = 650.0
